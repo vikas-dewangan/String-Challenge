@@ -1,3 +1,4 @@
+import java.util.*;
 
 public class Main {
 
@@ -31,13 +32,24 @@ public class Main {
         }
         delimiter = delimiter + "|\n";
         String[] tokens = numberPart.split(delimiter);
+
+        List<Integer> negatives = new ArrayList<>();
         int sum = 0;
 
         for (String token : tokens) {
             if (!token.trim().isEmpty()) {
                 int num = Integer.parseInt(token.trim());
+                if (num < 0) {
+                    negatives.add(num);
+                }
                 sum += num;
             }
+        }
+
+        if (!negatives.isEmpty()) {
+            throw new IllegalArgumentException(
+                "Negative numbers not allowed: " + negatives.toString().replaceAll("[\\[\\]]", "")
+            );
         }
 
         return sum;
