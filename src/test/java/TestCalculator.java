@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class Test {
+class TestCalculator {
 
     private final Main calculator = new Main();
 
